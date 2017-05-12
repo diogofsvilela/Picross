@@ -63,7 +63,7 @@
 ################################################################
 
 # Create coordinate type
-class coordinate:
+class coordenada:
 
     # Inicializer
     def __init__(self, line, column):
@@ -81,7 +81,7 @@ class coordinate:
         return self.column
 
 # Creator
-def create_coordinate(line, column): 
+def cria_coordenada(line, column): 
     '''create_coordinate  : int x int -> coordinate
        create_coordinate(line, column) recieves two posite integers as arguments, line and column
        respectively and returns a coordinate type element coorespondent to the cell (line : column).'''
@@ -90,37 +90,37 @@ def create_coordinate(line, column):
     if not(isinstance(line, (int)) and isinstance(column, (int)) and ((line > 0) and (column > 0))):
         raise ValueError('create_coordinate: invalid arguments')
 
-    return coordinate(line, column)
+    return coordenada(line, column)
 
 # Selector
-def coordinate_line(coord):
+def coordenada_linha(coord):
     '''coordinate_line : coordenada -> integer
        coordinate_line(coord) recieves as argument a cell and returns the coorespondent line.'''
     
     # Test if the argument is a coordinate
-    if not(is_coordinate(coord)):
+    if not(e_coordenada(coord)):
         raise ValueError('coordinate_line: invalid argument')
 
     return coord.get_line()
 
 # Selector
-def coordinate_column(coord):
+def coordenada_coluna(coord):
     '''coordinate_column : coordinate -> inteiro
        coordinate_column(coord) recieves as argument a cell and returns the coorespondent column.'''
     
     # Test if the argument is a coordinate
-    if not(is_coordinate(coord)):
+    if not(e_coordenada(coord)):
         raise ValueError('coordinate_column: invalid argument')
 
     return coord.get_column()
 
 # Recognizer
-def is_coordinate(element):
+def e_coordenada(element):
     '''is_coordinate : universal -> logic
        is_coordinate(element) recieves an argument and returns True if the element is a coordinate
        and return False otherwise.'''
 
-    return isinstance(element, (coordinate))
+    return isinstance(element, (coordenada))
 
 # Test
 def same_coordinates(coord1, coord2):
@@ -132,8 +132,8 @@ def same_coordinates(coord1, coord2):
     if not( is_coordinate(coord1) and is_coordinate(coord2) ):
         raise ValueError('same_coordinates: invalid arguments')
 
-    return ( ( coordinate_line(coord1) == coordinate_line(coord2) ) and 
-             ( coordinate_column(coord1) == coordinate_column(coord2) ) )
+    return ( ( coordenada_linha(coord1) == coordenada_linha(coord2) ) and 
+             ( coordenada_coluna(coord1) == coordenada_coluna(coord2) ) )
 
 # Funcao
 def coordenada_para_cadeia(coord):
